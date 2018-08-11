@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+	<title>YourDrive</title>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="styles/yourdrive.css">
+		<link rel="stylesheet" type="text/css" href="styles/common.css">
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css" />
+		<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower|Kaushan+Script|Lato|Lobster|Pacifico|Tangerine" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+		<link rel="icon" href="images/yd_icon2.jpg">
+
+  <!-- Compiled and minified JavaScript -->
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-ui.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-min.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="lib/filesaver.js"></script>
+
+	</head>
+<body class="font_lato">
+	<div id="loading">
+  <img id="loading-image" src="images/default_white.gif" alt="Loading..." />
+</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0">
+			<div class="header col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 width_100p display_table bg_black pad_top_10 position_fixed zindex_1">
+				<div class="dropdown col-xs-6 col-sm-6 col-md-6 col-lg-6 header_name">
+					<div class=" dropdown-toggle hover_yellow cursor_pointer" data-toggle="dropdown">
+						<i class="fa fa-archive icon_yd" aria-hidden="true"></i>
+						YourDrive
+					</div>
+					<ul class="dropdown-menu bg_black font_lato logo_dropdown">
+						<li href="#contact">Contact Us</li>
+						<li href="#about">About</li>
+					</ul>
+				</div>
+				<div class="font_lato col-xs-6 col-sm-6 col-md-6 col-lg-6 font_white pad_bottom_15 header_user">
+					<div class="dropdown cursor_pointer">
+						<div id="myBtn1" class="dropdown-toggle hover_yellow" data-toggle="dropdown"></div>
+						<ul class="dropdown-menu bg_black font_lato name_dropdown">
+							<li href="">Profile</li>
+							<li href="" onclick="log_out()">Log Out</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 position_absolute top_12p pad_bottom_20">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<span class="btn fview_btn bg_009688 pull-right " onclick="folderview()">Switch to Folderview >></span>
+			</div>
+			<div id="choose_file" >
+				<div class="col-xs-12 col-sm-9 col-md-7 col-lg-6">
+	    			<p class="font_red">Note: Choose files less than 5 mb. Press 'ctrl' to select multiple files(max 5 files)</p>
+	     			<input id="file" type="file" name="file" autocomplete='off' class="" multiple onchange="previewFile()">
+					<div id="file_choosed" class=""></div>
+				</div>
+				<div class="col-xs-12 col-sm-3 col-md-5 col-lg-6 pad_top_10 margin_top_5p">
+					<span class="btn upload_btn bg_00BCD4 pull-right" onclick="uploadFile()">Upload</span>
+				</div>
+			</div>
+
+		<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0">
+				<div class="dropdown">
+				  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+				  <span class="caret"></span></button>
+				  <ul class="dropdown-menu">
+				  	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				  		<div onclick = "changeBg('red')" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="bg_00BCD4 pad_10"></div></div>
+				    	<div onclick = "changeBg('blue')" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="bg_black pad_10"></div></div>
+				    	<div onclick = "changeBg('green')" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="bg_3ecb3e pad_10"></div></div>
+				  	</div>
+				    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin_top_10">
+				  		<div onclick = "changeBg('red')" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="bg_00BCD4 pad_10"></div></div>
+				    	<div onclick = "changeBg('blue')" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="bg_black pad_10"></div></div>
+				    	<div onclick = "changeBg('green')" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="bg_3ecb3e pad_10"></div></div>
+				  	</div>
+				  	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin_top_10">
+				  		<div onclick = "changeBg('red')" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="bg_00BCD4 pad_10"></div></div>
+				    	<div onclick = "changeBg('blue')" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="bg_black pad_10"></div></div>
+				    	<div onclick = "changeBg('green')" class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><div class="bg_3ecb3e pad_10"></div></div>
+				  	</div>
+				  </ul>
+				</div>
+			</div> -->
+
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_5 text_center font_size_20 margin_top_1p border_rad_5 font_white bg_3ecb3e" id="upload_success">Files uploaded successfully</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0">
+				<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+					<div class="box doc" onclick="files('fileGetDoc')">
+	  					<div class="overlay">
+	   						 <span class="disc">Documents</span>
+	  					</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+					<div class="box pho" onclick="files('fileGetImg')">
+						<div class="overlay">
+							 <span class="disc">Photos</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+					<div class="box aud" onclick="files('fileGetAud')">
+						<div class="overlay">
+							 <span class="disc">Audio Files</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+					<div class="box vid" onclick="files('fileGetVid')">
+	  					<div class="overlay">
+	   						 <span class="disc">Video Files</span>
+	  					</div>
+					</div>
+				</div>
+			</div>
+			<!-- 
+			<div class = "col-md-12 margin_top_3p display_none font_bold font_size_25 font_0294ce" id="up_back" >
+					<span onclick="back_to_upload()" class="cursor_pointer">Click to upload file</span>
+				</div> -->
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 border_green_3px display_none margin_top_3p pad_0 whitespace_nowrap" id="docs">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 border_bottom_3px font_bold display_table">
+					<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 display_cell pad_1p pad_top_10 pad_bottom_13 border_right_3px">
+						<input type="checkbox" class="checkbox" id="checkbox">
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 display_cell pad_10 border_right_3px">Name</div>
+					<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 display_cell pad_10 border_right_3px">Size</div>
+					<div class="col-sm-1 col-md-1 col-lg-1 mob_dis">Type</div>
+					<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 display_cell pad_10 date_border">Date</div>
+					<div class="col-sm-2 col-md-2 col-lg-2 action_head">Action</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0" id="files"></div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 display_none text_center font_size_20" id="no_files">No files to display</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 display_none text_center font_size_20" id="error">Error in connection</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin_top_1p margin_bottom_1p pad_0" id="action_btn">
+					<div class="col-sm-6 col-md-8 col-lg-8"></div>
+					<div class="col-xs-5 col-sm-2 col-md-1 col-lg-1 downDel_btn" onclick="downDel_all('download')">Download All</div>
+					<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1"></div>
+					<div class="col-xs-5 col-sm-2 col-md-1 col-lg-1 downDel_btn" onclick="Del_all()">Delete All</div>
+				</div>
+			</div>
+			
+
+		</div>
+		
+<script language="javascript" type="text/javascript">
+     $(window).load(function() {
+     $('#loading').hide();
+  });
+</script>
+</body>
+
+	<script type="text/javascript" src="scripts/userarea.js"></script>
+
+// <script type="text/javascript">
+
+// 			function readURL(input) {
+//         if (input.files && input.files[0]) {
+//             var reader = new FileReader();
+            
+//             reader.onload = function (e) {
+//                 $('#blah').attr('src', e.target.result);
+//             }
+            
+//             reader.readAsDataURL(input.files[0]);
+//         }
+//     }
+    
+//     $("#imgInp").change(function(){
+//         readURL(this);
+//     });
+// 			</script>
+
+// 			<script>
+//   var loadFile = function(event) {
+//     var reader = new FileReader();
+//     reader.onload = function(){
+//       var output = document.getElementById('output');
+//       output.src = reader.result;
+//     };
+//     reader.readAsDataURL(event.target.files[0]);
+//   };
+// </script>
+			

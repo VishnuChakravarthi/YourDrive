@@ -1,0 +1,861 @@
+body{
+	border: none !important;
+	margin: 0px !important;
+}
+
+.background_page1{
+	height: auto;
+}
+
+.header{
+	/*height:20px;*/
+	/*padding: 30px;*/
+	width:auto;
+	background: #17CF8B;
+}
+
+/*.image_yourdrive{
+	background-image:url("../images/k21010306.jpg");
+}*/
+
+.hover_yellow:hover{
+	color:yellow !important;
+	}
+
+ul >li{
+	padding-left: 10px;
+	cursor: pointer;
+	list-style-type: none;
+}
+ 
+.item >img{
+	width: 100%;
+	height: 618px !important;
+}
+
+.content{
+	/*z-index:1;*/
+}
+
+.footer >div >ul{
+	padding-left: 5px;
+	padding-top: 10px;
+}
+
+.footer >div >ul >li{
+	padding-left: 0px;
+}
+
+ /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    max-height: 360px !important;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close_btn_modal{
+    border-radius: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    background: red;
+    cursor: pointer;
+}
+
+.img_circle{
+    height: 200px;
+    width: 200px;
+    border: 4px solid #0fcc61;
+    border-radius: 100%;
+}
+
+.ques_btn{
+    color: #000000 !important;
+    width: 95%;
+    margin-left: 15px;
+}
+
+.register_btn{
+    text-align: center;
+    background-color: #00BCD4;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+input.validate:not([type]) + label,
+input.validate[type="text"] + label, 
+input.validate[type="password"] + label, 
+input.validate[type="email"] + label, 
+input.validate[type="url"] + label, 
+input.validate[type="time"] + label, 
+input.validate[type="date"] + label, 
+input.validate[type="datetime"] + label, 
+input.validate[type="datetime-local"] + label, 
+input.validate[type="tel"] + label, 
+input.validate[type="number"] + label, 
+input.validate[type="search"] + label, 
+textarea.materialize-textarea.validate + label,
+.input-field label{
+    color : black;
+}
+
+.border_register{
+  border: 3px solid #1cb35d;
+  border-radius: 33px;
+}
+
+.box{  
+  width:85%;
+  /*height:94%;*/
+  box-shadow:inset 1px 1px 40px 0 rgba(0,0,0,.45);
+  border-bottom:2px solid #fff;
+  border-right:2px solid #fff;
+  margin:5% auto 0 auto;
+  background-size:cover;
+  border-radius:5px;
+  overflow:hidden;
+  cursor: pointer;
+}
+
+.overlay{  
+  background:rgba(0,0,0,.75);
+  text-align:center;
+  padding:26% 0 26% 0;
+  opacity:0;
+  -webkit-transition: opacity .25s ease;
+  -moz-transition: opacity .25s ease;
+  cursor: pointer;
+}
+
+.box:hover .overlay {
+  opacity:1;
+}
+
+.disc{  
+  font-family:Helvetica;
+  font-weight:900;
+  color:rgba(255,255,255,.85);
+  font-size:100%;
+  cursor: pointer;
+}
+
+/*#filedrag
+{
+  display: none;
+  font-weight: bold;
+  text-align: center;
+  padding: 1em 0;
+  margin: 1em 0;
+  color: #555;
+  border: 2px dashed #555;
+  border-radius: 7px;
+  cursor: default;
+}
+
+#filedrag.hover
+{
+  color: #f00;
+  border-color: #f00;
+  border-style: solid;
+  box-shadow: inset 0 3px 4px #888;
+}*/
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+  display: none;
+}
+
+#loading {
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   position: fixed;
+   display: block;
+   opacity: 0.7;
+   background-color: #141313;
+   z-index: 99;
+   text-align: center;
+}
+
+#loading-image {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  z-index: 100;
+}
+
+.checkbox{
+  left : 0px !important;
+  opacity: 1 !important;
+  width: 86% !important;
+  position: relative !important;
+}
+
+.downDel_btn{
+  cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background: #00BCD4;
+  color: white;
+  font-size: 100%;
+  border-radius: 5px;
+  width: 12%;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+
+.choose{
+  border:1px solid red;
+  width:100%;
+  height: 100px;
+}
+
+.mob_dis{
+  display: table-cell;
+  padding: 10px;
+  border-right: 3px solid green;
+}
+
+.action_cell{
+    display: table-cell;
+    padding: 10px;
+    border-right: 0px;
+    border-bottom: 1px solid green !important;
+    color: #0294ce;
+    cursor: pointer;
+  }
+
+.action_head{
+    display: table-cell;
+    padding: 10px;
+    border-right: 0px;
+  }
+
+
+.header_name{
+  display: table-cell;
+  font-family: 'Kaushan Script', cursive;
+  padding-left: 5% !important;
+  color: white;
+  font-size: 45px;
+}
+
+.icon_yd{
+  font-size: 55px;
+  margin-right: -15px;
+}
+
+.header_user{
+  display: table-cell;
+  text-align: right;
+  font-size: 26px;
+}
+
+.date_border{
+  border-right: 3px solid green !important;
+}
+
+.size_pad{padding: 10px;}
+
+.name_dropdown{
+  font-size: 20px !important;
+  left: 77% !important;
+  /*right: 0px;*/
+  /*font_size_25 left_50p right_0 */
+}
+
+.logo_dropdown{
+  font-size: 20px !important;
+  left: 9% !important;
+  min-width: 38% !important;
+  top: 97% !important;
+  /*font_size_25 left_7p width_31p*/
+}
+
+.docs_font{
+      font-weight: bold;
+      font-size: 25px;
+      font-family: 'Pacifico', cursive;
+    }
+
+.docs_info{
+  font-size: 17px;
+  font-family: 'Lobster', cursive;
+}
+
+.reg_pane{
+  right: 10px;
+}
+
+.forget_pass{
+      left: 23%;
+    }
+
+.signup_text{
+  font-size: 20px;
+}
+
+.signin_text{
+  padding-top: 10px;
+  font-size: 28px;
+}
+
+.side_nav{
+  top: 150px !important;
+  background: none !important; 
+}
+
+.side_nav >ul >li >a{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.affix{
+  top: 100px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    background-color: #009688 !important;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
+}
+
+.fview_btn {
+      height: 50px !important;
+      font-size: 14px !important;
+      line-height: 20px !important;
+      padding: 5px !important;
+      padding-top: 15px !important;
+    }
+
+
+
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+/* STYLES GO HERE */
+/*.box{  
+      width:125px;
+      height:86px;
+    }*/
+.signin_text{
+  padding-top: 5px;
+  font-size: 16px;
+}
+
+    .signup_text{
+  font-size: 15px;
+}
+
+    .modal{
+      width: 88% !important;
+    }
+
+    .img_circle{
+        height: 80px;
+        width: 100%;
+        border: 2px solid #0fcc61;
+        /*border-radius: 100%;*/
+    }
+
+    .docs_font{
+      font-weight: normal;
+      font-size: 15px;
+    }
+
+    .docs_info{
+      font-size: 9px;
+    }
+
+    .reg_pane{
+      right: 0px;
+    }
+
+    .forget_pass{
+      left: 0px;
+    }
+
+    .disc{  
+      font-size:13px;
+    }
+
+    .mob_dis{
+      display: none;
+    }
+
+    .action_cell{
+      display: none;
+    }
+
+    .action_head{
+      display: none;
+    }
+
+    /*.downDel_btn{
+      font-size: 12px;
+      width: 44% !important;
+      margin-left: 3%;
+      margin-right: 3%;
+    }*/
+
+    .header_name{
+      font-size: 20px;
+    }
+
+    .icon_yd{
+      margin-right: 0px;
+    }
+
+    .header_user{
+      padding-top: 5px;
+      font-size: 15px;
+    }
+
+    .upload_btn {
+      height: 30px !important;
+      font-size: 12px !important;
+      line-height: 20px !important;
+      padding: 5px !important;
+    }  
+
+    .left_50p{left: 0px !important}
+    /*.top_7p{top: 15% !important;}*/
+
+    .date_border{border-right: 0px !important;}
+
+    .size_pad{padding: 10px 0 10px 0 !important;}
+
+    .name_dropdown{
+      font-size: 15px !important;
+      left: 35% !important;
+      min-width: 75% !important;
+    }
+
+    .logo_dropdown{
+      font-size: 15px !important;
+      left: 7% !important;
+      min-width: 82% !important;
+      /*font_size_25 left_7p width_31p*/
+    }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) and (max-width: 767px) {
+/* STYLES GO HERE */
+    /*.box{  
+      width:185px;
+      height:126px;
+    }*/
+    .signin_text{
+  padding-top: 7px;
+  font-size: 18px;
+}
+    .modal{
+  width: 88% !important;
+}
+
+.signup_text{
+  font-size: 17px;
+}
+
+    .img_circle{
+        height: 155px;
+        width: 100%;
+        border: 3px solid #0fcc61;
+    }
+
+    .docs_font{
+      font-weight: normal;
+      font-size: 20px;
+    }
+
+    .docs_info{
+      font-size: 11px;
+    }
+
+    .reg_pane{
+      right: 0px;
+    }
+
+    .forget_pass{
+      left: 0px;
+    }
+
+    .disc{  
+      font-size:18px;
+    }
+
+    .mob_dis{
+      display: none;
+    }
+
+    .action_cell{
+      display: none;
+    }
+
+    .action_head{
+      display: none;
+    }
+
+    /*.downDel_btn{
+      font-size: 15px;
+      width: 44% !important;
+      margin-left: 3%;
+      margin-right: 3%;
+    }*/
+
+    .header_name{
+      font-size: 24px;
+    }
+
+    .icon_yd{
+      font-size: 20px;
+      margin-right: 0px;
+    }
+
+    .header_user{
+      padding-top: 5px;
+      font-size: 18px;
+      padding-right: 30px !important;
+    }
+
+    .upload_btn {
+      font-size: 12px !important;
+      line-height: 28px !important;
+      padding: 5px !important;
+    } 
+
+    /*.top_7p{top: 15% !important;}*/
+
+    .size_pad{padding: 10px 0 10px 0 !important;}
+
+    .date_border{border-right: 0px !important;}
+
+    .name_dropdown{
+      font-size: 15px !important;
+      left: 52% !important;
+      min-width: 58% !important;
+    }
+
+    .logo_dropdown{
+      font-size: 15px !important;
+      left: 7% !important;
+      min-width: 65% !important;
+      /*font_size_25 left_7p width_31p*/
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+ and (min-device-width : 768px) and (max-device-width : 1024px) {
+/* STYLES GO HERE */
+    
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+/* STYLES GO HERE */
+    .mob_dis{
+      display: table-cell;
+      padding: 10px;
+      border-right: 3px solid green;
+    }
+
+    .action_cell{
+      display: table-cell;
+      padding: 10px;
+      border-right: 0px;
+    }
+
+    .forget_pass{
+      left: 16%;
+    }
+/*
+    .box{  
+      width:210px;
+      height:130px;
+    }*/
+
+    .disc{  
+      font-size:20px;
+    }
+
+    /*.downDel_btn{
+      font-size: 15px;
+      width: 13% !important;
+      margin-left: 2%;
+      margin-right: 1%;
+    }*/
+
+    .header_name{
+      font-size: 36px;
+    }
+
+    .icon_yd{
+      font-size: 20px;
+      margin-right: 0px;
+    }
+
+    .header_user{
+      padding-top: 15px;
+      font-size: 24px;
+      padding-right: 40px !important;
+    }
+
+    .upload_btn {
+      font-size: 14px !important;
+      line-height: 36px !important;
+      padding: 0 2rem !important;
+    }
+
+    .name_dropdown {
+      font-size: 20px !important;
+      left: 70% !important;
+    }
+
+    .logo_dropdown {
+      font-size: 20px !important;
+      left: 9% !important;
+      min-width: 45% !important;
+      top: 97% !important;
+    }
+    /*.top_7p{top: 7% !important;}*/
+
+    /*.date_border{border-right: 3px solid green !important;}*/
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+/* STYLES GO HERE */
+      .mob_dis{
+        display: table-cell;
+        padding: 10px;
+        border-right: 3px solid green;
+      }
+
+      .action_cell{
+        display: table-cell;
+        padding: 10px;
+        border-right: 0px;
+      }/*
+
+    .box{  
+      width:160px;
+      height:113px;
+    }*/
+
+    .forget_pass{
+      left: 16%;
+    }
+
+    .disc{  
+      font-size:20px;
+    }
+
+    /*.downDel_btn{
+      font-size: 15px;
+      width: 19% !important;
+      margin-left: 3%;
+      margin-right: 3%;
+    }*/
+
+    .header_name{
+      font-size: 36px;
+    }
+
+    .icon_yd{
+      font-size: 20px;
+      margin-right: 0px;
+    }
+
+    .header_user{
+      padding-top: 15px;
+      font-size: 24px;
+      padding-right: 40px !important;
+    }
+
+    .name_dropdown {
+      font-size: 20px !important;
+      left: 60% !important;
+    }
+
+    .logo_dropdown {
+      font-size: 20px !important;
+      left: 9% !important;
+      min-width: 54% !important;
+      top: 97% !important;
+    }
+    /*.top_7p{top: 7% !important;}*/
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+/*
+    .downDel_btn{
+      font-size: 17px;
+      width: 14% !important;
+      margin-left: 2%;
+      margin-right: 0%;
+    }*/
+/*
+    .box{  
+      width:280px;
+      height:183px;
+    }*/
+
+    .disc{  
+      font-size:27px;
+    }
+
+    .header_user{
+      margin-top: 1%;
+      padding-right: 80px !important;
+    }
+
+    .name_dropdown {
+      font-size: 24px !important;
+      left: 77% !important;
+      min-width: 30% !important;
+    }
+    /*.top_7p{top: 7% !important;}*/
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+/* STYLES GO HERE */
+.mob_dis{
+        display: table-cell;
+        padding: 10px;
+        border-right: 3px solid green;
+      }/*
+
+    .box{  
+      width:345px;
+      height:225px;
+    }*/
+
+    .disc{  
+      font-size:35px;
+    }
+/*
+    .downDel_btn{
+      font-size: 17px;
+      width: 12% !important;
+      margin-left: 2%;
+      margin-right: 2%;
+    }*/
+
+    .header_name{
+      font-size: 45px;
+    }
+
+    .icon_yd{
+      font-size: 20px;
+      margin-right: 0px;
+    }
+
+    .header_user{
+      margin-top: 1%;
+      padding-right: 80px !important;
+    }
+
+    .name_dropdown {
+      font-size: 24px !important;
+      left: 84% !important;
+      min-width: 21% !important;
+    }
+    /*.top_7p{top: 7% !important;}*/
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+/* STYLES GO HERE */
+}
+
+/* iPhone 5 (portrait & landscape)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+/* STYLES GO HERE */
+}
+
+/* iPhone 5 (landscape)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : landscape) {
+/* STYLES GO HERE */
+}
+
+/* iPhone 5 (portrait)----------- */
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : portrait) {
+/* STYLES GO HERE */
+}

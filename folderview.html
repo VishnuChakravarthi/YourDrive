@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+	<title>YourDrive</title>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="styles/yourdrive.css">
+		<link rel="stylesheet" type="text/css" href="styles/common.css">
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css" />
+		<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower|Kaushan+Script|Lato|Lobster|Pacifico|Tangerine" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+		<link rel="icon" href="images/yd_icon2.jpg">
+
+  <!-- Compiled and minified JavaScript -->
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-ui.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-min.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="lib/filesaver.js"></script>
+
+	</head>
+<body class="font_lato bg_folder">
+	<div id="loading">
+  <img id="loading-image" src="images/default_white.gif" alt="Loading..." />
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0">
+			<div class="header col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 width_100p display_table bg_black pad_top_10 position_fixed zindex_1">
+				<div class="dropdown col-xs-6 col-sm-6 col-md-6 col-lg-6 header_name">
+					<div class=" dropdown-toggle hover_yellow cursor_pointer" data-toggle="dropdown">
+						<i class="fa fa-archive icon_yd" aria-hidden="true"></i>
+						YourDrive
+					</div>
+					<ul class="dropdown-menu bg_black font_lato logo_dropdown">
+						<li href="#contact">Contact Us</li>
+						<li href="#about">About</li>
+					</ul>
+				</div>
+				<div class="font_lato col-xs-6 col-sm-6 col-md-6 col-lg-6 font_white pad_bottom_15 header_user">
+					<div class="dropdown cursor_pointer">
+						<div id="myBtn1" class="dropdown-toggle hover_yellow" data-toggle="dropdown"></div>
+						<ul class="dropdown-menu bg_black font_lato name_dropdown">
+							<li href="">Profile</li>
+							<li href="" onclick="log_out()">Log Out</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="col-xs-12 col-sm-2 col-md-3 col-lg-3 side_nav">
+	      <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="50">
+	        <li class="active" onclick="userarea()"><a>Switch to File View</a></li>
+	        <li onclick="" data-toggle="modal" data-target="#changeBg_modal"><a>Change Background</a></li>
+	        <li><a href="section3">Section 3</a></li>
+	      </ul>
+	    </nav>
+		<div class="col-xs-12 col-sm-4 col-md-6 col-lg-6 top_100 pad_bottom_20">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 border_none well margin_top_3p pad_0 whitespace_nowrap" id="docs">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 font_bold bg_009688 display_table">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 font_white display_cell pad_10 text-center">Folder View</div>
+					
+					<!-- <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 display_cell pad_10 border_right_3px">Size</div> -->
+					<!-- <div class="col-sm-1 col-md-1 col-lg-1 mob_dis">Type</div> -->
+					<!-- <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 display_cell pad_10 date_border">Date</div> -->
+					<!-- <div class="col-sm-2 col-md-2 col-lg-2 action_head">Action</div> -->
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 display_cell pad_0" onclick="up_one_folder()">
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 display_cell pad_1p pad_bottom_13 pad_top_15 cursor_pointer font_ffd700 fa fa-folder font_size_30"></div>
+						<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 display_cell pad_10 cursor_pointer font_size_24">..</div>
+					</div>
+					<div id= "folder_file" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0" id="folder_alone"></div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0" id="file_alone"></div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 display_none text_center font_size_20" id="no_files">No files to display</div>
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 display_none text_center font_size_20" id="error">Error in connection</div>
+				<!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin_top_1p margin_bottom_1p pad_0" id="action_btn">
+					<div class="col-sm-6 col-md-8 col-lg-8"></div>
+					<div class="col-xs-5 col-sm-2 col-md-1 col-lg-1 downDel_btn" onclick="downDel_all('download')">Download All</div>
+					<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1"></div>
+					<div class="col-xs-5 col-sm-2 col-md-1 col-lg-1 downDel_btn" onclick="Del_all()">Delete All</div>
+				</div> -->
+			</div>
+		</div>
+		<nav class="col-xs-12 col-sm-2 col-md-3 col-lg-3 side_nav">
+	      <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="50">
+	        <li class="active" data-toggle="modal" data-target="#create_folder_modal"><a>Create New Folder</a></li>
+	        <li onclick="" data-toggle="modal" data-target="#upload_modal"><a>Upload New File</a></li>
+	        <li><a href="section3">Section 3</a></li>
+	      </ul>
+	    </nav>
+	    <!-- <div class="modal fade" id="myModal" role="dialog"> -->
+		    <!-- <div class="modal-dialog modal-sm"> -->
+		      <div  id="create_folder_modal" class="modal fade modal-content modal_create_folder height_175 width_30p pad_left_15 pad_right_15">
+		        <div class="modal-header pad_0">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h5 class="modal-title">New Folder</h5>
+		        </div>
+		        <div class="modal-body pad_0">
+		          	<div class="input-field">
+			          <input id="folder_name" type="text" autocomplete="off">
+			          <!-- <label for="last_name">Last Name</label> -->
+			        </div>
+		        </div>
+		        <div class="modal-footer pad_0">  
+		          <button type="button" onclick="create_folder()" class="btn btn-default ">Create</button>
+		          <button type="button" class="btn btn-default margin_right_10" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+
+		      <div  id="upload_modal" class="modal fade modal-content modal_create_folder height_300 width_50p pad_left_15 pad_right_15">
+		        <div class="modal-header pad_0 pad_top_10">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h5 class="modal-title">Upload Files</h5>
+		        </div>
+		        <div class="modal-body pad_0 height_200">
+		          	<div class="">
+	    				<p class="font_red">Note: Choose files less than 5 mb. Press 'ctrl' to select multiple files(max 5 files)</p>
+	     				<input id="file" type="file" name="file" autocomplete='off' class="" multiple onchange="previewFile()">
+						<div id="file_choosed" class=""></div>
+					</div>
+		        </div>
+		        <div class="modal-footer pad_0">  
+		          <button type="button" onclick="upload()" class="btn btn-default ">Upload</button>
+		          <button type="button" class="btn btn-default margin_right_10" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+
+		      <!-- <div id="upload_modal" class="modal fade modal-content modal_create_folder height_300 width_50p pad_left_15 pad_right_15">
+		        <div class="modal-header pad_0 pad_top_10">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h5 class="modal-title">Upload Files</h5>
+		        </div>
+		        <div class="modal-body pad_0 height_200">
+		          	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		          		
+					</div>
+		        </div>
+		        <div class="modal-footer pad_0">  
+		          <!-- <button type="button" onclick="upload()" class="btn btn-default ">Upload</button>
+		          <button type="button" class="btn btn-default margin_right_10" data-dismiss="modal">Close</button>
+		        </div>
+		      </div> --> -->
+		    <!-- </div> -->
+		  <!-- </div> -->
+<script language="javascript" type="text/javascript">
+     $(window).load(function() {
+     $('#loading').hide();
+  });
+</script>
+</body>
+
+	<script type="text/javascript" src="scripts/folderview.js"></script>
+

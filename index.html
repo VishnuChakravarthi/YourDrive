@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+	<title>YourDrive</title>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" type="text/css" href="styles/yourdrive.css">
+		<link rel="stylesheet" type="text/css" href="styles/common.css">
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css" />
+		<link href="https://fonts.googleapis.com/css?family=Dancing+Script|Indie+Flower|Kaushan+Script|Lato|Lobster|Pacifico|Tangerine" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+		<link rel="icon" href="images/yd_icon2.jpg">
+
+  <!-- Compiled and minified JavaScript -->
+  
+		<script type="text/javascript" src="lib/jquery/jquery.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-ui.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery-min.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+
+		
+	</head>
+	<body class="font_lato">
+		<div id="loading">
+  			<img id="loading-image" src="images/default_white.gif" alt="Loading..." />
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0">
+			<div class="header col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 width_100p display_table bg_black pad_top_10 position_fixed zindex_1 pad_bottom_10">
+				<div class="dropdown col-xs-6 col-sm-6 col-md-6 col-lg-6 pad_bottom_ header_name">
+					<div class=" dropdown-toggle hover_yellow cursor_pointer" data-toggle="dropdown">
+						<i class="fa fa-archive icon_yd" aria-hidden="true"></i>
+						YourDrive
+					</div>
+					<ul class="dropdown-menu bg_black font_lato logo_dropdown">
+						<li href="#contact">Contact Us</li>
+						<li href="#about">About</li>
+					</ul>
+				</div>
+				<div class="font_lato col-xs-6 col-sm-6 col-md-6 col-lg-6 pad_right_14p font_white signin_text">
+					<div id="myBtn" class="pull-right hover_yellow cursor_pointer">
+						<i class="fa fa-sign-in" aria-hidden="true"></i>
+						Sign In
+					</div>
+					<div id="myModal" class="modal">
+						 <div class="card-panel margin_0 text_left bg_1eed3d66 height_100p">
+		                  <h4 class="header2 font_black text_center">Sign In
+		                  	<button type="button" class="close" data-dismiss="modal">&times;</button></h4>
+		                  <div class="row margin_bottom_0">
+		                    <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		                      <div class="row">
+		                        <div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12 font_9e9e9e pad_0">
+		                          <i class="fa fa-envelope prefix top_12"></i>
+		                          <input id="email1" type="email" class="font_blue" autocomplete='off'>
+		                          <label for="email1">Email</label>
+		                        </div>
+		                      </div>
+		                      <div class="row">
+		                        <div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12 font_9e9e9e pad_0">
+		                          <i class="fa fa-key prefix top_12"></i>
+		                          <input id="password1" type="password" class="font_blue" autocomplete='off'>
+		                          <label for="password1">Password</label>
+		                        </div>
+		                      </div>
+		                    </form>
+		                    <div id="alert_box1" class="font_red font_size_17 text_center"></div>
+		                    <div class="row ">
+	                          <div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	                          	<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text_center signup_text">
+		                          	<span><a class="font_4285F4 cursor_pointer" onclick="forgot_password()">Forgot Password </a></span>
+		                          	<span class="font_black">|</span>  
+		                          	<span><a class="font_4285F4" href="">Sign Up</a></span>
+	                          	</div>
+	                          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+	                            <button class="btn cyan waves-effect waves-light right" type="submit" onclick="validateForm()">Submit
+	                              <!-- <i class="fa fa-paper-plane right"></i> -->
+	                            </button>
+	                            </div>
+	                          </div>
+	                        </div>
+	                        <!-- <div class="row pad_top_10">
+	                        	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text_center">
+	                        		<span class="close_btn_modal" data-dismiss="modal">Close</span>
+	                        	</div>
+	                         </div> -->
+		                  </div>
+		                </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 position_absolute top_15p">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div id="myCarousel" class="carousel slide margin_top_1p opacity_p3 height_618" data-ride="carousel">
+	  				  	<ol class="carousel-indicators">
+					    	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					    	<li data-target="#myCarousel" data-slide-to="1"></li>
+					    	<li data-target="#myCarousel" data-slide-to="2"></li>
+					    	<li data-target="#myCarousel" data-slide-to="3"></li>
+					 	</ol>
+				  		<div class="carousel-inner" role="listbox">
+						    <div class="item active">
+						      <img src="images/document-management-2.jpg" alt="document_management">
+						    </div>
+						    <div class="item">
+						      <img src="images/osx-elcapitan-ios9-icloud-photo-library-hero.jpg" alt="photo_management">
+						    </div>
+				  		</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pad_0 position_absolute top_4 font_black reg_pane border_register">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 text_center">
+						<span class="font_size_20 font_light">New to <span class="font_bold">Your Drive</span>, Register here</span>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="input-field col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          						<input id="first_name" type="text" class="validate" autocomplete='off'>
+          						<label for="first_name" class="pad_left_15">First Name <span class="font_red">*</span></label>
+       						</div>
+							<div class="input-field col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          						<input id="last_name" type="text" class="validate" autocomplete='off'>
+          						<label for="last_name" class="pad_left_15">Last Name</label>
+       						</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          						<input id="uname" type="text" class="validate" autocomplete='off'>
+          						<label for="uname" class="pad_left_15">Username <span class="font_red">*</span></label>
+       						</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          						<input id="email" type="text" class="validate" autocomplete='off'>
+          						<label for="email" class="pad_left_15">Email <span class="font_red">*</span></label>
+       						</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 pad_0">
+          							<input id="pword" type="password" class="validate" autocomplete='off'>
+          							<label for="pword">Password <span class="font_red">*</span></label>
+          						</div>
+          						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 pad_0">
+          							<i class="" id="pass_suf" aria-hidden="true"></i>
+          						</div>
+       						</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 pad_0">
+          							<input id="cpword" type="password" onblur="match()" class="validate" autocomplete='off'>
+          							<label for="cpword">Confirm Password <span class="font_red">*</span></label>
+          						</div>
+          						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 pad_0">
+          							<i class="" id="suffix" aria-hidden="true"></i>
+          						</div>
+       						</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_bottom_10">
+							<div class="dropdown">
+							  <span class="btn btn-default text_trans_none dropdown-toggle ques_btn bg_opaque text_left pad_left_0 font_bold" type="button" id="dropdownMenuQ" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							    Secret Question <span class="font_red">*</span>
+							    <span class="caret"></span>
+							  </span>
+							  <ul class="dropdown-menu ques_btn text_left margin_left_15" aria-labelledby="dropdownMenuQ">
+							    <li><a href="" value="Mother's maiden name">Mother's maiden name</a></li>
+							    <li><a href="" value="My father's pet name">My father's pet name</a></li>
+							    <li><a href="" value="My favourite teacher name">My favourite teacher name</a></li>
+							  </ul>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          						<input id="answer" type="text" class="validate" autocomplete='off'>
+          						<label for="answer" class="pad_left_15">Answer <span class="font_red">*</span></label>
+       						</div>
+						</div>
+						<div id="alert_box" class="font_red text_center"></div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_bottom_20">
+							<div id="reg_btn" class="register_btn zindex_0 waves-effect waves-light" onclick="register()">Register Now!</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="forget_pass" class="col-xs-12 col-sm-8 col-md-6 col-lg-6 pad_0 margin_top_3p font_black border_register forget_pass display_none">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0 text_center">
+						<span class="col-xs-7 col-sm-7 col-md-7 col-lg-7 font_size_20 font_light text_right">Forget Password</span>
+						<span class="col-xs-5 col-sm-5 col-md-5 col-lg-5 font_size_20 font_light text_right">
+							<span class="cursor_pointer" onclick="close_fpass()">&times</span>
+						</span>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_0">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 display_block" >
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	          						<input id="email2" type="text" class="validate" autocomplete='off'>
+	          						<label for="email2" class="pad_left_15">Email <span class="font_red">*</span></label>
+	       						</div>
+							</div>
+						</div>
+						<div id="forgot_pass_alert" class="font_red text_center"></div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_bottom_20" id="confirm_email">
+							<div id="checkdet" class="register_btn zindex_0 waves-effect waves-light" onclick="check_email()">Check Email</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 display_none" id="sec_que">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_bottom_10">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 font_bold margin_top_10" id="se_q"></div>
+								<!-- <div class="dropdown">
+								  <span class="btn btn-default text_trans_none dropdown-toggle ques_btn bg_opaque text_left pad_left_0 font_bold" type="button" id="dropdownMenuQ1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								    Secret Question <span class="font_red">*</span>
+								    <span class="caret"></span>
+								  </span>
+								  <ul class="dropdown-menu ques_btn text_left margin_left_15" aria-labelledby="dropdownMenuQ1">
+								    <li><a href="" value="Mother's maiden name">Mother's maiden name</a></li>
+								    <li><a href="" value="My father's pet name">My father's pet name</a></li>
+								    <li><a href="" value="My favourite teacher name">My favourite teacher name</a></li>
+								  </ul>
+								</div> -->
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	          						<input id="answer1" type="text" class="validate" autocomplete='off'>
+	          						<label for="answer1" class="pad_left_15">Answer <span class="font_red">*</span></label>
+	       						</div>
+							</div>
+							<div id="forgot_pass_alert1" class="font_red text_center"></div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_bottom_20">
+								<div id="checkdet" class="register_btn zindex_0 waves-effect waves-light" onclick="check_det()">Check Detail</div>
+							</div>
+						</div>
+						
+
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 display_none" id="change_password">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<div class="col-md-11 pad_0">
+	          							<input id="pword2" type="password" class="validate" autocomplete='off'>
+	          							<label for="pword2">Password <span class="font_red">*</span></label>
+	          						</div>
+	          						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 pad_0">
+	          							<i class="" id="pass_suf1" aria-hidden="true"></i>
+	          						</div>
+	       						</div>
+							</div>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<div class="input-field col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11 pad_0">
+	          							<input id="cpword1" type="password" onblur="match()" class="validate" autocomplete='off'>
+	          							<label for="cpword1">Confirm Password <span class="font_red">*</span></label>
+	          						</div>
+	          						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 pad_0">
+	          							<i class="" id="suffix1" aria-hidden="true"></i>
+	          						</div>
+	       						</div>
+	       						<div id="forgot_pass_alert2" class="font_red text_center"></div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_bottom_20">
+									<div id="changebtn" class="register_btn zindex_0 waves-effect waves-light" onclick="change_pword()">Change Password</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_20">
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text_center">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_top_10">
+						<img class="img_circle" src="images/managing+documents.jpg">
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_10">
+						<span class="docs_font">Documents</span>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_10 pad_top_0 docs_info">
+						Lets you store documents in any formats such as .docx, .odt.
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text_center">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_top_10">
+						<img class="img_circle" src="images/managing+documents.jpg">
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_10">
+						<span class="docs_font">Photos</span>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_10 pad_top_0 docs_info">
+						Allows you to store images of any types like .jpg, .png, .gif.
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text_center">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_top_10">
+						<img class="img_circle" src="images/managing+documents.jpg">
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_10">
+						<span class="docs_font">Space</span>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_10 pad_top_0 docs_info">
+						It gives you more space for storing your files.
+					</div>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text_center">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_top_10">
+						<img class="img_circle" src="images/managing+documents.jpg">
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_10">
+						<span class="docs_font">Security</span>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad_10 pad_top_0 docs_info">
+						The files in the drive is safe and secure.
+					</div>
+				</div>
+            </div>
+			<div class="footer col-xs-12 col-sm-12 col-md-12 col-lg-12 bg_black border_top_2px">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pad_left_40">
+					<span>Company</span>
+						<ul>
+							<li><span>About</span></li>
+							<li><span>Carrers</span></li>
+							<li><span>Cultures</span></li>
+							<li><span>Blog</span></li>
+							<li><span>Reviews</span></li>
+							<li><span>Contact Us</span></li>
+						</ul>
+				</div>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pad_left_40">
+					<span>Support</span>
+						<ul>
+							<li><span>Help Center</span></li>
+							<li><span>Privacy Policy</span></li>
+							<li><span>Terms of Service</span></li>
+						</ul>
+				</div>
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pad_left_40">
+					<span>Community</span>
+						<ul>
+							<li><span>Facebook</span></li>
+							<li><span>Twitter</span></li>
+							<li><span>Google Plus</span></li>
+							<li><span>Pinterest</span></li>
+							<li><span>Wikipedia</span></li>
+						</ul>
+				</div>
+			</div>
+		</div>
+		<!-- <div class="col-md-12 pad_0 position_absolute top_100p">ggsdhasdgs</div> -->
+		
+<script language="javascript" type="text/javascript">
+     $(window).load(function() {
+     $('#loading').hide();
+  });
+</script>
+	</body>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+	<script type="text/javascript" src="scripts/yourdrive.js"></script>
+	<script type="text/javascript">
+			
+		</script>
