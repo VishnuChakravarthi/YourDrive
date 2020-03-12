@@ -2,18 +2,6 @@
 
 include "sql.php";
 
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "dropbox";
-
-// // Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// // Check connection
-// if ($conn->connect_error) {
-//     die("Connection failed: " . $conn->connect_error);
-// }
-
 
 if (!isset($_SERVER['HTTP_ORIGIN'])) {
 		echo "This is not cross-domain request";
@@ -30,7 +18,6 @@ if (!isset($_SERVER['HTTP_ORIGIN'])) {
 		$userName = $_POST['userName'];
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		// $pass = md5($password);
 		$secret_q = $_POST['secret_q'];
 		$secret_a = $_POST['secret_a'];
 
@@ -46,11 +33,9 @@ if (!isset($_SERVER['HTTP_ORIGIN'])) {
 			VALUES ('$firstName', '$lastName', '$userName', '$email', '$password', '$secret_q', '$secret_a')";
 
 			if ($conn->query($sql1) === TRUE) {
-			    // echo "New record created successfully";
 			    echo "1";
 			} else {
 			    echo json_encode("Error: " . $sql . "<br>" . $conn->error);
-			    // echo "0";
 			}
 		}
 
